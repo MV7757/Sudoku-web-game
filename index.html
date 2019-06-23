@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title>Sodoku</title>
+    </head>
+    <body>
+        <div class="title">
+            <h1>Sodoku</h1>
+        </div>
+        <div class="mainPage" id="main">
+            <h1 onclick="change('easy')" class="dif">Easy<br></h1>
+            <h1 onclick="change('med')" class="dif">Medium<br></h1>
+            <h1 onclick="change('hard')" class ="dif">Hard</h1>
+        </div>
+        
+        <h1 id='wrongError'>Wrong Number</h1>
+        
+        <div id="gameOver">
+            <h1 id="time"></h1>
+            <h1 onclick='restart()'>Play Again?</h1>
+        </div>
+        
+        <img id="pause" alt="pause" src="pause_button.png" onclick="pause()">
+        <div id="grid">
+            <h1 id="hints" onclick="give_hint()"></h1>
+            <div class="outerbox">
+                <div class="innerbox" id="A1" onclick="highlight('A1')">     
+                    <h1 id="a1"></h1>
+                    <p id="aa1"></p>
+                </div>
+                <div class="innerbox" id="A2" onclick="highlight('A2')"> 
+                    <h1 id="a2"></h1>
+                    <p id="aa2"></p>
+                </div>
+                <div class="innerbox" id="A3" onclick="highlight('A3')"> 
+                    <h1 id="a3"></h1>
+                    <p id="aa3"></p>
+                </div>
+                <div class="innerbox" id="B1" onclick="highlight('B1')">
+                    <h1 id="b1"></h1>
+                    <p id="bb1"></p>
+                </div>
+                <div class="innerbox" id="B2" onclick="highlight('B2')">
+                     <h1 id="b2"></h1>
+                     <p id="bb2"></p>
+                </div>
+                <div class="innerbox" id="B3" onclick="highlight('B3')">
+                    <h1 id="b3"></h1>
+                    <p id="bb3"></p>
+                </div>
+                <div class="innerbox" id="C1" onclick="highlight('C1')"> 
+                    <h1 id="c1"></h1>
+                    <p id="cc1"></p>
+                </div>
+                <div class="innerbox" id="C2" onclick="highlight('C2')">
+                    <h1 id="c2"></h1>
+                    <p id="cc2"></p>
+                </div>
+                <div class="innerbox" id="C3" onclick="highlight('C3')">
+                    <h1 id="c3"></h1>
+                    <p id="cc3"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="A4" onclick="highlight('A4')">
+                    <h1 id="a4"></h1>
+                    <p id="aa4"></p>
+                </div>
+                <div class="innerbox" id="A5" onclick="highlight('A5')">
+                    <h1 id="a5"></h1>
+                    <p id="aa5"></p>
+                </div>
+                <div class="innerbox" id="A6" onclick="highlight('A6')">
+                    <h1 id="a6"></h1>
+                    <p id="aa6"></p>
+                </div>
+                <div class="innerbox" id="B4" onclick="highlight('B4')">
+                    <h1 id="b4"></h1>
+                    <p id="bb4"></p>
+                </div>
+                <div class="innerbox" id="B5" onclick="highlight('B5')">
+                    <h1 id="b5"></h1>
+                    <p id="bb5"></p>
+                </div>
+                <div class="innerbox" id="B6" onclick="highlight('B6')">
+                    <h1 id="b6"></h1>
+                    <p id="bb6"></p>
+                </div>
+                <div class="innerbox" id="C4" onclick="highlight('C4')">
+                    <h1 id="c4"></h1>
+                    <p id="cc4"></p>
+                </div>
+                <div class="innerbox" id="C5" onclick="highlight('C5')">
+                    <h1 id="c5"></h1>
+                    <p id="cc5"></p>
+                </div>
+                <div class="innerbox" id="C6" onclick="highlight('C6')">
+                    <h1 id="c6"></h1>
+                    <p id="cc6"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="A7" onclick="highlight('A7')">
+                    <h1 id="a7"></h1>
+                    <p id="aa7"></p>
+                </div>
+                <div class="innerbox" id="A8" onclick="highlight('A8')">
+                    <h1 id="a8"></h1>
+                    <p id="aa8"></p>
+                </div>
+                <div class="innerbox" id="A9" onclick="highlight('A9')">
+                    <h1 id="a9"></h1>
+                    <p id="aa9"></p>
+                </div>
+                <div class="innerbox" id="B7" onclick="highlight('B7')">
+                    <h1 id="b7"></h1>
+                    <p id="bb7"></p>
+                </div>
+                <div class="innerbox" id="B8" onclick="highlight('B8')">
+                    <h1 id="b8"></h1>
+                    <p id="bb8"></p>
+                </div>
+                <div class="innerbox" id="B9" onclick="highlight('B9')">
+                    <h1 id="b9"></h1>
+                    <p id="bb9"></p>
+                </div>
+                <div class="innerbox" id="C7" onclick="highlight('C7')">
+                    <h1 id="c7"></h1>
+                    <p id="cc7"></p>
+                </div>
+                <div class="innerbox" id="C8" onclick="highlight('C8')">
+                    <h1 id="c8"></h1>
+                    <p id="cc8"></p>
+                </div>
+                <div class="innerbox" id="C9" onclick="highlight('C9')">
+                    <h1 id="c9"></h1>
+                    <p id="cc9"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="D1" onclick="highlight('D1')">
+                    <h1 id="d1"></h1>
+                    <p id="dd1"></p>
+                </div>
+                <div class="innerbox" id="D2" onclick="highlight('D2')">
+                    <h1 id="d2"></h1>
+                    <p id="dd2"></p>
+                </div>
+                <div class="innerbox" id="D3" onclick="highlight('D3')">
+                    <h1 id="d3"></h1>
+                    <p id="dd3"></p>
+                </div>
+                <div class="innerbox" id="E1" onclick="highlight('E1')">
+                    <h1 id="e1"></h1>
+                    <p id="ee1"></p>
+                </div>
+                <div class="innerbox" id="E2" onclick="highlight('E2')">
+                    <h1 id="e2"></h1>
+                    <p id="ee2"></p>
+                </div>
+                <div class="innerbox" id="E3" onclick="highlight('E3')">
+                    <h1 id="e3"></h1>
+                    <p id="ee3"></p>
+                </div>
+                <div class="innerbox" id="F1" onclick="highlight('F1')">
+                    <h1 id="f1"></h1>
+                    <p id="ff1"></p>
+                </div>
+                <div class="innerbox" id="F2" onclick="highlight('F2')">
+                    <h1 id="f2"></h1>
+                    <p id="ff2"></p>
+                </div>
+                <div class="innerbox" id="F3" onclick="highlight('F3')">
+                    <h1 id="f3"></h1>
+                    <p id="ff3"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="D4" onclick="highlight('D4')">
+                    <h1 id="d4"></h1>
+                    <p id="dd4"></p>
+                </div>
+                <div class="innerbox" id="D5" onclick="highlight('D5')">
+                    <h1 id="d5"></h1>
+                    <p id="dd5"></p>
+                </div>
+                <div class="innerbox" id="D6" onclick="highlight('D6')">
+                    <h1 id="d6"></h1>
+                    <p id="dd6"></p>
+                </div>
+                <div class="innerbox" id="E4" onclick="highlight('E4')">
+                    <h1 id="e4"></h1>
+                    <p id="ee4"></p>
+                </div>
+                <div class="innerbox" id="E5" onclick="highlight('E5')">
+                    <h1 id="e5"></h1>
+                    <p id="ee5"></p>
+                </div>
+                <div class="innerbox" id="E6" onclick="highlight('E6')">
+                    <h1 id="e6"></h1>
+                    <p id="ee6"></p>
+                </div>
+                <div class="innerbox" id="F4" onclick="highlight('F4')">
+                    <h1 id="f4"></h1>
+                    <p id="ff4"></p>
+                </div>
+                <div class="innerbox" id="F5" onclick="highlight('F5')">
+                    <h1 id="f5"></h1>
+                    <p id="ff5"></p>
+                </div>
+                <div class="innerbox" id="F6" onclick="highlight('F6')">
+                    <h1 id="f6"></h1>
+                    <p id="ff6"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="D7" onclick="highlight('D7')">
+                    <h1 id="d7"></h1>
+                    <p id="dd7"></p>
+                </div>
+                <div class="innerbox" id="D8" onclick="highlight('D8')">
+                    <h1 id="d8"></h1>
+                    <p id="dd8"></p>
+                </div>
+                <div class="innerbox" id="D9" onclick="highlight('D9')">
+                    <h1 id="d9"></h1>
+                    <p id="dd9"></p>
+                </div>
+                <div class="innerbox" id="E7" onclick="highlight('E7')">
+                    <h1 id="e7"></h1>
+                    <p id="ee7"></p>
+                </div>
+                <div class="innerbox" id="E8" onclick="highlight('E8')">
+                    <h1 id="e8"></h1>
+                    <p id="ee8"></p>
+                </div>
+                <div class="innerbox" id="E9" onclick="highlight('E9')">
+                    <h1 id="e9"></h1>
+                    <p id="ee9"></p>
+                </div>
+                <div class="innerbox" id="F7" onclick="highlight('F7')">
+                    <h1 id="f7"></h1>
+                    <p id="ff7"></p>
+                </div>
+                <div class="innerbox" id="F8" onclick="highlight('F8')">
+                    <h1 id="f8"></h1>
+                    <p id="ff8"></p>
+                </div>
+                <div class="innerbox" id="F9" onclick="highlight('F9')">
+                    <h1 id="f9"></h1>
+                    <p id="ff9"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="G1" onclick="highlight('G1')">
+                    <h1 id="g1"></h1>
+                    <p id="gg1"></p>
+                </div>
+                <div class="innerbox" id="G2" onclick="highlight('G2')">
+                    <h1 id="g2"></h1>
+                    <p id="gg2"></p>
+                </div>
+                <div class="innerbox" id="G3" onclick="highlight('G3')">
+                    <h1 id="g3"></h1>
+                    <p id="gg3"></p>
+                </div>
+                <div class="innerbox" id="H1" onclick="highlight('H1')">
+                    <h1 id="h1"></h1>
+                    <p id="hh1"></p>
+                </div>
+                <div class="innerbox" id="H2" onclick="highlight('H2')">
+                    <h1 id="h2"></h1>
+                    <p id="hh2"></p>
+                </div>
+                <div class="innerbox" id="H3" onclick="highlight('H3')">
+                    <h1 id="h3"></h1>
+                    <p id="hh3"></p>
+                </div>
+                <div class="innerbox" id="I1" onclick="highlight('I1')">
+                    <h1 id="i1"></h1>
+                    <p id="ii1"></p>
+                </div>
+                <div class="innerbox" id="I2" onclick="highlight('I2')">
+                    <h1 id="i2"></h1>
+                    <p id="ii2"></p>
+                </div>
+                <div class="innerbox" id="I3" onclick="highlight('I3')">
+                    <h1 id="i3"></h1>
+                    <p id="ii3"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="G4" onclick="highlight('G4')">
+                    <h1 id="g4"></h1>
+                    <p id="gg4"></p>
+                </div>
+                <div class="innerbox" id="G5" onclick="highlight('G5')">
+                    <h1 id="g5"></h1>
+                    <p id="gg5"></p>
+                </div>
+                <div class="innerbox" id="G6" onclick="highlight('G6')">
+                    <h1 id="g6"></h1>
+                    <p id="gg6"></p>
+                </div>
+                <div class="innerbox" id="H4" onclick="highlight('H4')">
+                    <h1 id="h4"></h1>
+                    <p id="hh4"></p>
+                </div>
+                <div class="innerbox" id="H5" onclick="highlight('H5')">
+                    <h1 id="h5"></h1>
+                    <p id="hh5"></p>
+                </div>
+                <div class="innerbox" id="H6" onclick="highlight('H6')">
+                    <h1 id="h6"></h1>
+                    <p id="hh6"></p>
+                </div>
+                <div class="innerbox" id="I4" onclick="highlight('I4')">
+                    <h1 id="i4"></h1>
+                    <p id="ii4"></p>
+                </div>
+                <div class="innerbox" id="I5" onclick="highlight('I5')">
+                    <h1 id="i5"></h1>
+                    <p id="ii5"></p>
+                </div>
+                <div class="innerbox" id="I6" onclick="highlight('I6')">
+                    <h1 id="i6"></h1>
+                    <p id="ii6"></p>
+                </div>
+            </div>        
+            <div class="outerbox">
+                <div class="innerbox" id="G7" onclick="highlight('G7')">
+                    <h1 id="g7"></h1>
+                    <p id="gg7"></p>
+                </div>
+                <div class="innerbox" id="G8" onclick="highlight('G8')">
+                    <h1 id="g8"></h1>
+                    <p id="gg8"></p>
+                </div>
+                <div class="innerbox" id="G9" onclick="highlight('G9')">
+                    <h1 id="g9"></h1>
+                    <p id="gg9"></p>
+                </div>
+                <div class="innerbox" id="H7" onclick="highlight('H7')">
+                    <h1 id="h7"></h1>
+                    <p id="hh7"></p>
+                </div>
+                <div class="innerbox" id="H8" onclick="highlight('H8')">
+                    <h1 id="h8"></h1>
+                    <p id="hh8"></p>
+                </div>
+                <div class="innerbox" id="H9" onclick="highlight('H9')">
+                    <h1 id="h9"></h1>
+                    <p id="hh9"></p>
+                </div>
+                <div class="innerbox" id="I7" onclick="highlight('I7')">
+                    <h1 id="i7"></h1>
+                    <p id="ii7"></p>
+                </div>
+                <div class="innerbox" id="I8" onclick="highlight('I8')">
+                    <h1 id="i8"></h1>
+                    <p id="ii8"></p>
+                </div>
+                <div class="innerbox" id="I9" onclick="highlight('I9')">
+                    <h1 id="i9"></h1>
+                    <p id="ii9"></p>
+                </div>
+            </div>
+            <div class="counter">
+                <div id ='num'>
+                    <h1 class="numbers" id="num1" onclick="place_num('1')">1</h1>
+                    <h1 class="numbers" id="num2" onclick="place_num('2')">2</h1>
+                    <h1 class="numbers" id="num3" onclick="place_num('3')">3</h1>
+                    <h1 class="numbers" id="num4" onclick="place_num('4')">4</h1>
+                    <h1 class="numbers" id="num5" onclick="place_num('5')">5</h1>
+                    <h1 class="numbers" id="num6" onclick="place_num('6')">6</h1>
+                    <h1 class="numbers" id="num7" onclick="place_num('7')">7</h1>
+                    <h1 class="numbers" id="num8" onclick="place_num('8')">8</h1>
+                    <h1 class="numbers" id="num9" onclick="place_num('9')">9</h1>
+                </div>
+                <h1 id="wrong"> 0 </h1> 
+                <h1 id="count">(0:00)</h1>
+                <img onclick="write_nums()" id='pencil' src="pencil.png" alt="PENCIL">
+            </div>
+        </div>
+        <!--JavaScript -->
+        <script src="js/sodoku.js"> </script>
+    </body>
+</html>
